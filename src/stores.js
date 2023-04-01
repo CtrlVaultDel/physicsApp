@@ -39,8 +39,8 @@ function createBoardStore(){
 		updateColor: () => {
 			update(board => {
 				switch(board.physicsType){
-					case "": return board.color = "tan"
-					default: return board.color = "gray"
+					case "sand": return {...board, color: "tan"}
+					default: return {...board, color: "gray"}
 				}
 			})
 		},
