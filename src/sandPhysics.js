@@ -27,8 +27,8 @@ export function calculateSandPhysics(currentMatrix){
 			}
 			
 			// 5. Save copy of pixels to bottom left and bottom right
-			let pixelObjBottomLeft = x-1 >= newMatrix[0].length ? null : newMatrix[y+1][x-1]
-			let pixelObjBottomRight = x+1 < 0 ? null : newMatrix[y+1][x+1]
+			let pixelObjBottomLeft = x === 0 ? null : newMatrix[y+1][x-1]
+			let pixelObjBottomRight = x === newMatrix[0].length - 1 ? null : newMatrix[y+1][x+1]
 			
 			// 6. Determine which are available (1 or both)
 			const isBottomLeftOpen = pixelObjBottomLeft !== null && !pixelObjBottomLeft.isFilled
