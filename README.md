@@ -1,5 +1,7 @@
 ## App info
-Switch between physics types, click in the designated area and click test physics to see how the pixels on screen react.
+Switch between physics types, click/drag cursor in the designated area to fill canvas
+Physics are off by default. Unpause to see how items interact in the canvas; can adjust game tick speed
+
 Current physics:
 1. Basic -> drops straight down
 2. Sand -> Drops down if possible, otherwise drops diagonally if possible
