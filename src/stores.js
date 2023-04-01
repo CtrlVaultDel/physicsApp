@@ -15,8 +15,7 @@ function createBoardStore(){
 		matrix: generateNewMatrix(DEFAULT_WIDTH, DEFAULT_HEIGHT),
 		physicsType: "sand",
 		color: "tan",
-		isPaused: false,
-		tickSpeed: 5000,
+		isPaused: true,
 		height: DEFAULT_HEIGHT,
 		width: DEFAULT_WIDTH,
 	});

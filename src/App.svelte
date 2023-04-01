@@ -3,6 +3,7 @@
 	import TypeSelector from "./TypeSelector.svelte"
 	
 	let isDraggingMouse = false;
+	let tickSpeed = 500
 	
 	function mouseHandler(e, x, y){
 		// Holding mouse down or clicking within the board
@@ -10,6 +11,16 @@
 			$boardObj.matrix[y][x] = boardObj.generatePixel(x, y, $boardObj.color);
 		}
 	}
+	
+	function startGameTimer(){
+			console.log(`Tickspeed: ${tickSpeed}`)
+			setTimeout(() => {
+			boardObj.applyPhysics()
+			startGameTimer()
+		}, tickSpeed)
+	}
+	
+	startGameTimer()
 </script>
 
 <main id="root">
@@ -38,9 +49,11 @@
 			</div>
 		{/each}
 	</div>
-	<button on:click={boardObj.applyPhysics}>
-		Test Physics
-	</button>
+		<div id="tickSpeedContainer">
+			<span>ms between ticks:</span>
+			<input type="range" bind:value={tickSpeed} min=100 max=500 step=50>
+			<span>{tickSpeed}</span>
+		</div>
 	<TypeSelector />
 </main>
 
@@ -69,5 +82,14 @@
 		outline: none;
 		width: 5px;
 		height: 5px;
+	}
+	
+	#tickSpeedContainer{
+		display: flex;
+		align-items: center
+	}
+	
+	#tickSpeedContainer input{
+		margin: 0 10px
 	}
 </style>
